@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8EE957E0-549B-48B2-835E-21037C3C37C0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Essentials</RootNamespace>
+    <AssemblyName>Essentials</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mysql.data">
+      <HintPath>..\..\References\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Account\AccountCommands.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Config\ConfigOptions.cs" />
+    <Compile Include="Crypto\ARC4.cs" />
+    <Compile Include="Crypto\AuthCrypto.cs" />
+    <Compile Include="Database\DatabaseGlobals.cs" />
+    <Compile Include="Database\MySqlBase.cs" />
+    <Compile Include="Database\PreparedResult\PreparedResult.cs" />
+    <Compile Include="Database\QueryResult\QueryResult.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Database\Tables\Account.cs" />
+    <Compile Include="Database\Tables\Realm.cs" />
+    <Compile Include="DBC\DBC.cs" />
+    <Compile Include="DBC\DBCExtensions.cs" />
+    <Compile Include="DBC\DBCHeader.cs" />
+    <Compile Include="DBC\DBCStores.cs" />
+    <Compile Include="DBC\Reader\DBCReader.cs" />
+    <Compile Include="DBC\Unused.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Managers\CommandMgr.cs" />
+    <Compile Include="Network\Opcodes\Opcodes.cs" />
+    <Compile Include="Network\Packet\ClientHeader.cs" />
+    <Compile Include="Network\Packet\Header.cs" />
+    <Compile Include="Network\Packet\Packet.cs" />
+    <Compile Include="Network\Packet\PacketReader.cs" />
+    <Compile Include="Network\Packet\PacketWriter.cs" />
+    <Compile Include="Network\Packet\ServerHeader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

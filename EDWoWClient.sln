@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Essentials", "server\Essentials\Essentials.csproj", "{8EE957E0-549B-48B2-835E-21037C3C37C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMHelper", "server\GMHelper\GMHelper.csproj", "{FD8A82F3-3277-489E-B442-C1A3F5C8AB9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDWoWClient", "EDWoWClient\EDWoWClient.csproj", "{64334339-6481-436D-9712-AC987B57EAFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EE957E0-549B-48B2-835E-21037C3C37C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EE957E0-549B-48B2-835E-21037C3C37C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EE957E0-549B-48B2-835E-21037C3C37C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EE957E0-549B-48B2-835E-21037C3C37C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8A82F3-3277-489E-B442-C1A3F5C8AB9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8A82F3-3277-489E-B442-C1A3F5C8AB9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8A82F3-3277-489E-B442-C1A3F5C8AB9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8A82F3-3277-489E-B442-C1A3F5C8AB9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64334339-6481-436D-9712-AC987B57EAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64334339-6481-436D-9712-AC987B57EAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64334339-6481-436D-9712-AC987B57EAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64334339-6481-436D-9712-AC987B57EAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
