@@ -19,13 +19,12 @@
   with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
-using System;
+using System.Collections.Generic;
 
 namespace GMHelper
 {
-    public class PlayerName
+    public static class TicketMgr
     {
-        public UInt64 GUID;
-        public string Name;
+        public static List<Ticket> TicketList = new List<Ticket>();
     }
 }

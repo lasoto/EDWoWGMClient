@@ -24,41 +24,6 @@ using System.Collections.Generic;
 
 namespace GMHelper
 {
-    public enum GMTicketResponse : uint
-    {
-        GMTICKET_RESPONSE_ALREADY_EXIST = 1,
-        GMTICKET_RESPONSE_CREATE_SUCCESS = 2,
-        GMTICKET_RESPONSE_CREATE_ERROR = 3,
-        GMTICKET_RESPONSE_UPDATE_SUCCESS = 4,
-        GMTICKET_RESPONSE_UPDATE_ERROR = 5,
-        GMTICKET_RESPONSE_TICKET_DELETED = 9
-    };
-
-    public enum GMTicketStatus : byte
-    {
-        GMTICKET_STATUS_HASTEXT = 6,
-        GMTICKET_STATUS_DEFAULT = 10
-    };
-
-    public enum GMTicketEscalationStatus : byte
-    {
-        TICKET_UNASSIGNED = 0,
-        TICKET_ASSIGNED = 1,
-        TICKET_IN_ESCALATION_QUEUE = 2,
-        TICKET_ESCALATED_ASSIGNED = 3
-    };
-
-    public enum GMTicketOpenedByGMStatus : byte
-    {
-        GMTICKET_OPENEDBYGM_STATUS_NOT_OPENED = 0,  // ticket has never been opened by a gm
-        GMTICKET_OPENEDBYGM_STATUS_OPENED = 1       // ticket has been opened by a gm
-    };
-
-    public class Tickets
-    {
-        public static List<Ticket> TicketList = new List<Ticket>();
-    }
-
     public class Ticket
     {
         public GMTicketStatus Status;

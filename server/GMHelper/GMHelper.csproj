@@ -50,10 +50,10 @@
     <Compile Include="Logon\Network\Logon.cs" />
     <Compile Include="Logon\RealmList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="World\Definitions\Channel.cs" />
-    <Compile Include="World\Definitions\Chat.cs" />
-    <Compile Include="World\Definitions\PlayerName.cs" />
-    <Compile Include="World\Definitions\Ticket.cs" />
+    <Compile Include="World\Channel\Channel.cs" />
+    <Compile Include="World\Channel\ChannelMgr.cs" />
+    <Compile Include="World\Chat\Chat.cs" />
+    <Compile Include="World\Definitions\Definitions.cs" />
     <Compile Include="World\Entities\Character.cs" />
     <Compile Include="World\Entities\Item.cs" />
     <Compile Include="World\Handlers\AuthHandler.cs" />
@@ -63,6 +63,8 @@
     <Compile Include="World\Handlers\QueryHandler.cs" />
     <Compile Include="World\Managers\Manager.cs" />
     <Compile Include="World\Network\WorldServer.cs" />
+    <Compile Include="World\Ticket\Ticket.cs" />
+    <Compile Include="World\Ticket\TicketMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -21,6 +21,8 @@
     FURTHER CREDITS
      MangosClient
 */
+using System;
+
 using Essentials;
 
 namespace GMHelper
@@ -31,18 +33,18 @@ namespace GMHelper
         public string Name { get; private set; }
         public byte Race;
         public byte Class;
-        Gender Gender;
-        byte[] Bytes;    // 5
+        public Gender Gender;
+        public byte[] Bytes;    // 5
         public byte Level { get; private set; }
-        uint ZoneId;
-        uint MapId;
-        float X, Y, Z;
-        uint GuildId;
-        uint Flags;
-        uint PetInfoId;
-        uint PetLevel;
-        uint PetFamilyId;
-        Item[] Items = new Item[20];
+        public uint ZoneId;
+        public uint MapId;
+        public float X, Y, Z;
+        public uint GuildId;
+        public uint Flags;
+        public uint PetInfoId;
+        public uint PetLevel;
+        public uint PetFamilyId;
+        public Item[] Items = new Item[20];
 
         public Character(PacketReader reader)
         {
@@ -76,5 +78,11 @@ namespace GMHelper
                 reader.ReadUInt32();
             }
         }
+    }
+
+    public class PlayerName
+    {
+        public UInt64 GUID;
+        public string Name;
     }
 }

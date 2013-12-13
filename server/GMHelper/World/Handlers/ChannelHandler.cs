@@ -70,17 +70,20 @@ namespace GMHelper
         /// </summary>
         /// <param name="channelName"></param>
         /// <param name="password"></param>
-        public void JoinChannel(string channelName, string password)
+        public void JoinChannel(Channel channel)
         {
+            if (ChannelMgr.ChannelList.Contains(channel))
+                return;
+
             PacketWriter writer = new PacketWriter(Opcodes.CMSG_JOIN_CHANNEL);
             writer.Write((UInt32)0);
             writer.Write((byte)0);
             writer.Write((byte)0);
-            writer.Write(channelName.ToCString());
-            writer.Write(password);
+            writer.Write(channel.Name.ToCString());
+            writer.Write(channel.Password);
             Send(writer);
 
-            RequestChannelList(channelName);
+            RequestChannelList(channel.Name);
         }
     }
 }

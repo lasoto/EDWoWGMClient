@@ -40,9 +40,6 @@ namespace EDWoWClient
             InitializeComponent();
         }
 
-        private void MessageWindow_Load(object sender, EventArgs e)
-        {
-        }
         /// <summary>
         /// Invokes the chat to prevent cross-threaded errors
         /// Chat goes by type

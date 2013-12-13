@@ -315,7 +315,6 @@
             this.Name = "MessageWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Messaging";
-            this.Load += new System.EventHandler(this.MessageWindow_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPageSay.ResumeLayout(false);
             this.tabPageYell.ResumeLayout(false);
