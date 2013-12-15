@@ -25,7 +25,7 @@ using GMHelper;
 
 namespace EDWoWClient
 {
-    public class SystemMgr
+    public class SystemMgr : WorldMgr
     {
         /// <summary>
         /// Handles System Update
@@ -48,8 +48,8 @@ namespace EDWoWClient
         /// <param name="obj"></param>
         void TimerCallback(Object obj)
         {
-            if (MessageForm.MessageWindow != null && WorldMgr.Player!= null)
-                if (WorldMgr.Player.HasVerified)
+            if (MessageForm.MessageWindow != null && Player != null)
+                if (Player.HasVerified)
                     MessageForm.MessageWindow.ReceiveChatMessage();
         }
     }

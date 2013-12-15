@@ -2,16 +2,16 @@
 
 namespace EDWoWClient
 {
-    public static class WorldMgr
+    public class WorldMgr : Manager
     {
         public static WorldServer Server
         {
-            get { return Manager.m_WorldServer; }
+            get { return m_WorldServer; }
         }
 
         public static Character Player
         {
-            get { return Manager.m_WorldServer.Player; }
+            get { return m_WorldServer.Player; }
         }
     }
 }
