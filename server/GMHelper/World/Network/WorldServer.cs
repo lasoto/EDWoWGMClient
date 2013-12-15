@@ -145,7 +145,7 @@ namespace GMHelper
 
             if (Connect())
             {
-                InfoMessage = "Successfully connected to the WorldServer";
+                InfoMessage = "Successfully connected to the WorldServer \n";
                 Start();
             }
         }
@@ -183,6 +183,7 @@ namespace GMHelper
                 tcpClient.Client.Dispose();
                 tcpClient = null;
                 Manager.m_WorldServer = null;
+                Player.HasVerified = false;
             }
         }
         /// <summary>

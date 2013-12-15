@@ -117,7 +117,7 @@ namespace EDWoWClient
             btnTickets.Visible = false;
             lblconnection.ForeColor = Color.OrangeRed;
             lblconnection.Text = "Disconnected";
-            Manager.m_WorldServer.LogoutRequest();
+            WorldMgr.Server.LogoutRequest();
             if (SystemMgr.Timer != null)
                 mainForm.SystemMgr.Timer.Dispose();
 

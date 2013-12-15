@@ -61,5 +61,11 @@ namespace GMHelper
             PacketWriter writer = new PacketWriter(Opcodes.CMSG_LOGOUT_REQUEST);
             Send(writer);
         }
+
+        [PacketHandler(Opcodes.SMSG_LOGIN_VERIFY_WORLD)]
+        void HandleLogonVerifyWorld(PacketReader reader)
+        {
+            Player.HasVerified = true;
+        }
     }
 }

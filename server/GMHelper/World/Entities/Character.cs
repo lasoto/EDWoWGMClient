@@ -29,21 +29,22 @@ namespace GMHelper
 {
     public class Character
     {
-        public ulong GUID;
+        public ulong GUID { get; private set; }
         public string Name { get; private set; }
-        public byte Race;
-        public byte Class;
-        public Gender Gender;
-        public byte[] Bytes;    // 5
+        public byte Race { get; set; }
+        public byte Class { get; set; }
+        public Gender Gender { get; set; }
+        public byte[] Bytes { get; private set; }
         public byte Level { get; private set; }
-        public uint ZoneId;
-        public uint MapId;
+        public uint ZoneId { get; set; }
+        public uint MapId { get; set; }
         public float X, Y, Z;
-        public uint GuildId;
-        public uint Flags;
-        public uint PetInfoId;
-        public uint PetLevel;
-        public uint PetFamilyId;
+        public uint GuildId { get; set; }
+        public uint Flags { get; set; }
+        public uint PetInfoId { get; set; }
+        public uint PetLevel { get; set; }
+        public uint PetFamilyId { get; set; }
+        public bool HasVerified { get; set; }
         public Item[] Items = new Item[20];
 
         public Character(PacketReader reader)

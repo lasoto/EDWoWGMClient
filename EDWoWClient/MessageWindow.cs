@@ -57,9 +57,9 @@ namespace EDWoWClient
                         BeginInvoke(new MethodInvoker(delegate
                         {
                             if (!string.IsNullOrEmpty(chatMessage.Message))
-                                richTextBox.AppendText(string.Format("{0} \n", Manager.m_WorldServer.ReceiveCMDSyntax()));
+                                richTextBox.AppendText(string.Format("{0} \n", WorldMgr.Server.ReceiveCMDSyntax()));
                             chatMessage.Message = null;
-                            Manager.m_WorldServer.CmdList.Clear();
+                            WorldMgr.Server.CmdList.Clear();
                         }));
                         break;
                     case ChatType.CHAT_TYPE_SAY:
@@ -120,7 +120,7 @@ namespace EDWoWClient
 
             writer.Write((UInt32)Language.LANG_UNIVERSAL);
             writer.Write(richTextBox.Text.ToCString());
-            Manager.m_WorldServer.Send(writer);
+            WorldMgr.Server.Send(writer);
             richTextBox.Text = "";
         }
         /// <summary>
@@ -129,7 +129,7 @@ namespace EDWoWClient
         /// </summary>
         public void ReceiveChatMessage()
         {
-            ChatMessage chatMessage = Manager.m_WorldServer.ReceiveMsg;
+            ChatMessage chatMessage = WorldMgr.Server.ReceiveMsg;
             switch (chatMessage.Type)
             {
                 case ChatType.CHAT_TYPE_SYSTEM:
@@ -149,20 +149,20 @@ namespace EDWoWClient
                     break;
             }
 
-            if (!string.IsNullOrEmpty(Manager.m_WorldServer.InfoMessage))
+            if (!string.IsNullOrEmpty(WorldMgr.Server.InfoMessage))
             {
-                InvokeChat(richTextBoxReceiveInfo, null, Manager.m_WorldServer.InfoMessage + "\n");
-                Manager.m_WorldServer.InfoMessage = null;
+                InvokeChat(richTextBoxReceiveInfo, null, WorldMgr.Server.InfoMessage);
+                WorldMgr.Server.InfoMessage = null;
             }
-            else if (!string.IsNullOrEmpty(Manager.m_WorldServer.WarningMessage))
+            else if (!string.IsNullOrEmpty(WorldMgr.Server.WarningMessage))
             {
-                InvokeChat(richTextBoxReceiveWarning, null, Manager.m_WorldServer.WarningMessage + "\n");
-                Manager.m_WorldServer.WarningMessage = null;
+                InvokeChat(richTextBoxReceiveWarning, null, WorldMgr.Server.WarningMessage);
+                WorldMgr.Server.WarningMessage = null;
             }
-            else if (!string.IsNullOrEmpty(Manager.m_WorldServer.ErrorMessage))
+            else if (!string.IsNullOrEmpty(WorldMgr.Server.ErrorMessage))
             {
-                InvokeChat(richTextBoxReceiveError, null, Manager.m_WorldServer.ErrorMessage + "\n");
-                Manager.m_WorldServer.ErrorMessage = null;
+                InvokeChat(richTextBoxReceiveError, null, WorldMgr.Server.ErrorMessage);
+                WorldMgr.Server.ErrorMessage = null;
             }
         }
 

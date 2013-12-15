@@ -21,6 +21,8 @@
 using System;
 using System.Threading;
 
+using GMHelper;
+
 namespace EDWoWClient
 {
     public class SystemMgr
@@ -46,8 +48,9 @@ namespace EDWoWClient
         /// <param name="obj"></param>
         void TimerCallback(Object obj)
         {
-            if (MessageForm.MessageWindow != null)
-                MessageForm.MessageWindow.ReceiveChatMessage();
+            if (MessageForm.MessageWindow != null && WorldMgr.Player!= null)
+                if (WorldMgr.Player.HasVerified)
+                    MessageForm.MessageWindow.ReceiveChatMessage();
         }
     }
 }
