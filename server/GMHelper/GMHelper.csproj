@@ -64,7 +64,6 @@
     <Compile Include="World\Managers\Manager.cs" />
     <Compile Include="World\Network\WorldServer.cs" />
     <Compile Include="World\Ticket\Ticket.cs" />
-    <Compile Include="World\Ticket\TicketMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

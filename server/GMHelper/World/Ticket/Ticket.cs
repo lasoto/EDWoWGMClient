@@ -28,7 +28,14 @@ namespace GMHelper
     {
         public GMTicketStatus Status;
         public UInt32 Id;
+        public UInt32 MapId;
+        public UInt32 CreateTime;
+        public UInt32 LastModifiedTime;
+        public float PlayerX, PlayerY, PlayerZ;
+        public UInt64 PlayerGUID;
+        public UInt64 AssignedToGUID;
         public string Message;
+        public string PlayerName;
         public bool HasTicket;
         public float LastModifiedAge;
         public float OldAge;

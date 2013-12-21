@@ -23,8 +23,6 @@ namespace Essentials
 {
     public class PreparedResult
     {
-        #region Characters
-        public static string CHARACTER_GM_TICKET_GET = "SELECT ticketId, guid, name, message, createTime, mapId, posX, posY, posZ, lastModifiedTime, closedBy, comment, response, completed, escalated, viewed, haveTicket FROM gm_tickets";
-        #endregion
+        public static string CHARACTER_GM_TICKET_GET = "SELECT ticketId, guid, name, message, createTime, mapId, posX, posY, posZ, lastModifiedTime, closedBy, assignedTo FROM gm_tickets";
     }
 }

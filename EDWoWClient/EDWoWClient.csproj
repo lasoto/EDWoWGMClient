@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Logging\Logging.cs" />
     <Compile Include="Managers\SystemMgr.cs" />
+    <Compile Include="Managers\TicketMgr.cs" />
     <Compile Include="Managers\WorldMgr.cs" />
     <Compile Include="MessageWindow.cs">
       <SubType>Form</SubType>

@@ -47,16 +47,52 @@ namespace EDWoWClient
         /// <param name="e"></param>
         private void TicketForm_Load(object sender, EventArgs e)
         {
-            QueryResult result = DatabaseGlobals.CharacterDB.Select(PreparedResult.CHARACTER_GM_TICKET_GET);
-
-            if (result.Count != 0)
+            using (QueryResult result = DatabaseGlobals.CharacterDB.Select(PreparedResult.CHARACTER_GM_TICKET_GET))
             {
-                UInt32 ticketId = result.Read<UInt32>(0, "ticketId");
-                UInt64 playerGUID = result.Read<UInt64>(0, "guid");
-                string playerName = result.Read<string>(0, "name");
-                string message = result.Read<string>(0, "message");
+                TicketMgr.TicketList.Clear();
 
-                listBoxTickets.Items.Add(string.Format("TicketId: {0}, PlayerGUID: {1}, PlayerName: {2}, Message {3}", ticketId, playerGUID, playerName, message));
+                Ticket ticket;
+                UInt32 ticketId = 0, mapId = 0, createTime = 0, lastModifiedTime = 0;
+                float x = 0, y = 0, z = 0;
+                UInt64 playerGUID = 0, closedBy = 0, assignedToGUID;
+                string playerName = "", message = "";
+
+                for (int i = 0; i < result.Count; i++)
+                {
+                    ticket = new Ticket();
+                    ticketId = result.Read<UInt32>(i, "ticketId");
+                    playerGUID = result.Read<UInt64>(i, "guid");
+                    playerName = result.Read<string>(i, "name");
+                    message = result.Read<string>(i, "message");
+                    createTime = result.Read<UInt32>(i, "createTime");
+                    mapId = result.Read<UInt32>(i, "mapId");
+                    x = result.Read<float>(i, "posX");
+                    y = result.Read<float>(i, "posY");
+                    z = result.Read<float>(i, "posZ");
+                    lastModifiedTime = result.Read<UInt32>(i, "lastModifiedTime");
+                    closedBy = result.Read<UInt64>(i, "closedBy");
+                    assignedToGUID = result.Read<UInt64>(i, "assignedTo");
+
+                    ticket.Id = ticketId;
+                    ticket.PlayerGUID = playerGUID;
+                    ticket.PlayerName = playerName;
+                    ticket.Message = message;
+                    ticket.CreateTime = createTime;
+                    ticket.MapId = mapId;
+                    ticket.PlayerX = x;
+                    ticket.PlayerY = y;
+                    ticket.PlayerZ = z;
+                    ticket.LastModifiedTime = lastModifiedTime;
+                    ticket.AssignedToGUID = assignedToGUID;
+
+                    if (closedBy == 0)
+                    {
+                        listBoxTickets.Items.Add(string.Format("TicketId: {0}, PlayerGUID: {1}, PlayerName: {2}", ticketId, playerGUID, playerName));
+
+                        if (TicketMgr.TicketList != null)
+                            TicketMgr.TicketList.Add(ticket);
+                    }
+                }
             }
         }
 
@@ -91,5 +127,19 @@ namespace EDWoWClient
             minBtn.ForeColor = Color.FromArgb(100, 100, 100);
         }
         #endregion
+
+        private void listBoxTickets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (Ticket ticket in TicketMgr.TicketList)
+            {
+                if (listBoxTickets.Items[listBoxTickets.SelectedIndex].ToString().Contains(ticket.PlayerName))
+                {
+                    textBoxTicketId.Text = ticket.Id.ToString();
+                    textBoxPlayerName.Text = ticket.PlayerName;
+                    textBoxPlayerGUID.Text = ticket.PlayerGUID.ToString();
+                    textBoxMessage.Text = ticket.Message;
+                }
+            }
+        }
     }
 }
